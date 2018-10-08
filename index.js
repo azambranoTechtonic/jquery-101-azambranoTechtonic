@@ -19,6 +19,11 @@ function init( jQuery ) {
       bindEvents();
     });
 
+    $("#fixPage").click(function(event){
+      event.preventDefault();
+      fixThePage();
+    });
+
 }
 
 $( document ).ready( init );
@@ -93,17 +98,24 @@ function addBreed() {
 
 // place functions and supporting code here.  Uncomment line below and place answer the to right of = sign
 
-function makeCards(arrCaptions,arrFilePaths) {
+function makeCards(arrCaptions = [],arrFilePaths = []) {
 
   // Get new Card
+  var cardNumber = 0;
+  var cardCaption;
+  var cardFilePath;
 
   // loop the array
-  for (var 1 = 0;i < arrCaptions.length;i++) {
+  for (var i = 0;i < arrCaptions.length;i++) {
 
-    // append object in div "galle
+    // append object in div "gallery"
+    cardNumber = i + 2;
+    cardCaption = arrCaptions[i];
+    cardFilePath = arrFilePaths[i];
+
+    $("#gallery").append('<div class="box box-lit"><h3>' + cardNumber + '</h3><img src="' + cardFilePath + '" class="gallery-img" alt="Pic ' + cardNumber + '" /><p>' + cardCaption + '</p></div>');
 
   }
-
 }
 
 // HERE ARE COMMENTED OUT SNIPPETS OF HTML THAT WILL BE REPLACED PROGRAMATICALLY USING JQUERY.
@@ -130,4 +142,16 @@ function makeCards(arrCaptions,arrFilePaths) {
 
 
 // place functions and supporting code here.  Uncomment line below and place answer the to right of = sign
+
+function  fixThePage() {
+
+    makeCards(["un coyote","otro coyote"],["./images/pic_2.jpg","./images/pic_3.jpg"]);
+
+}
+
+
+
+
+
+
 // document.getElementById("challenge-2").innerHTML =
