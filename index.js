@@ -147,6 +147,9 @@ function  fixThePage() {
 
     makeCards(["un coyote","otro coyote"],["./images/pic_2.jpg","./images/pic_3.jpg"]);
 
+    var str = "Dog's Food";
+    $( "#later-b3 h2" ).html( str );
+
 }
 
 
